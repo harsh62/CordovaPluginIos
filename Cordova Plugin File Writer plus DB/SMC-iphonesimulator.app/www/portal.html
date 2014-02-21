@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+    <title>Apps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript" src="sm-cordova-2.2.0.min.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <script type="text/javascript">
+        function loadSuccess(response) {
+            var list = document.getElementById('mainView');
+            var innerHTML = [];
+            for (var i = 0; i < response.apps.length; i++) {
+                var app = response.apps[i];
+                innerHTML.push('<div class="panel" style="margin:0px 0px; padding: 1px;"><a  href="javascript:SMClient.startApp(\'' + app.appkey + '\')">');
+                innerHTML.push('<div id="feature"><div style="float:left;"><img src="'+app.iconUrl + '" class="appIcon"/></div>');
+                innerHTML.push('<div style="padding-top:7px"><span class="appName">' +app.appname+ '</span><br /><span class="appDesc">'+app.description+ '</span></div></div></div></a></div>');
+            }
+            list.innerHTML = innerHTML.join('');
+        }
+        
+        function loadError(error) {
+            window.location = "login.html";
+        }
+        
+        function getAppsList() {
+            SMAppManager.getAllApps(loadSuccess,loadError);
+        }
+        
+        function doLogout() {
+            SMClient.logout();
+           // window.location = "login.html";
+        }
+        
+        document.addEventListener('deviceready', getAppsList, false);
+        </script>
+    
+        <!--<link rel="stylesheet" href="indexList.css">-->
+</head>
+
+<body>
+    <div id="mainView">
+    </div>
+    
+</body>
+</html>

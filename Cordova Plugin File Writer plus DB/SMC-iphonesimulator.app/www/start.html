@@ -1,0 +1,48 @@
+﻿ <html>
+    <head>
+        <title>Silver Mobile</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="maximum-scale=1, minimum-scale=1, width=device-width, target-densitydpi=device-dpi" />      
+        <script type="text/javascript" src="sm-cordova-2.2.0.min.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+		<link rel="stylesheet" href="main.css">
+    </head>
+     <body>
+         <div class='panel' style="padding: 0.70em;"><img src="logo.png"></div>
+         <form id='wrapper'>
+             <fieldset>
+                 <legend>Login</legend>
+                 <div class="row">
+                     <div class="small-12 columns">
+                         <input id="username" type="text" placeholder="username"/>
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="small-12 columns">
+                         <input id="password" type="password" placeholder="password"/>
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="small-12 columns">
+                         <input id="passcode" type="text" placeholder="verification code" style="display:none" />
+                     </div>
+                 </div>
+                 <div class="row">
+                     <div class="small-12 columns">
+                         <input id="server" type="text" placeholder="server:port"/>
+                     </div>
+                 </div>
+                 <row>
+                     <div class="small-5 large-4 columns">
+                         <a href="javascript:doLogin()" class="button prefix">login</a>
+                     </div>
+                     <div class="small-7 large-8 columns">
+                         <h5 style="text-align:left;">SSL:</h5><input id="useSsl" type="checkbox"/>
+                     </div>
+                 </row>
+             </fieldset>
+         </form>
+         
+         <div id='alert'></div>
+         
+     </body></html>
